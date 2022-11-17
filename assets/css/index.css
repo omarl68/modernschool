@@ -132,11 +132,9 @@ nav .menu .btn-outline:hover {
 .menu-button,
 .menu-button::before,
 .menu-button::after {
-  display: block;
-  background-color: #FE753E;
-  position: absolute;
-  right: 11%;
-  top: 5%;
+  background-color: #fe753e;
+  margin-top: 26px;
+  float: right;
   height: 4px;
   width: 30px;
   transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -220,7 +218,7 @@ nav .menu .btn-outline:hover {
   }
 }
 @media (max-width: 800px) {
-  .our-learning .row {
+  .row {
     grid-template-columns: 1fr !important;
     justify-content: center !important;
   }
@@ -424,7 +422,6 @@ nav .menu .btn-outline:hover {
 .access .container .parent {
   display: flex;
   justify-content: space-between;
-  gap: 160px;
 }
 .access .container .parent .child1 iframe {
   box-shadow: 60px 86px #FFECE4;
@@ -444,6 +441,59 @@ nav .menu .btn-outline:hover {
 }
 .access .container .parent .for-shadow {
   box-shadow: -60px 86px #FFECE4 !important;
+}
+
+.join {
+  margin-top: 15rem;
+}
+.join .container .bg-title {
+  background-image: url("/assets/img/line-5.png");
+}
+.join .container .community .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+}
+.join .container .community .row .col .card {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  padding: 38px;
+  height: 300px;
+  width: fit-content;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.join .container .community .row .col .card .title-card {
+  display: flex;
+  gap: 10px;
+}
+.join .container .community .row .col .card .title-card h3 {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 28px;
+  color: #141313;
+}
+.join .container .community .row .col .card .title-card h4 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #fe753e;
+}
+.join .container .community .row .col .card .title-card img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  justify-items: center;
+  align-items: center;
+}
+.join .container .community .row .col .card p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
 }
 
 /* @import'grid';
