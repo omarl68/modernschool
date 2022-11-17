@@ -2,11 +2,12 @@
 * {
   font-family: "rubik", "sans serif";
   box-sizing: border-box;
+  font-style: normal;
   scroll-behavior: smooth;
 }
 
-html {
-  margin: 0 3rem;
+section {
+  padding-left: 20px;
 }
 
 .landing .container, nav .container {
@@ -15,7 +16,7 @@ html {
   box-sizing: border-box;
 }
 
-.landing .container .discription .link-btn .btn, nav .menu .btn-outline, nav .menu .btn {
+.btn, .landing .container .discription .link-btn .btn, nav .menu .btn-outline, nav .menu .btn {
   border-radius: 10px;
   cursor: pointer;
 }
@@ -29,12 +30,30 @@ h1 {
   font-weight: 600;
 }
 
+.title-2 {
+  line-height: 1px;
+}
+
+.bg-title {
+  background: url("/assets/img/wave-bg.png");
+  width: fit-content;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  color: #FE753E;
+}
+
+p {
+  color: gray;
+}
+
 nav {
   margin-top: 0.5rem;
+  margin-left: 20px;
 }
 nav .logo {
   display: flex;
   gap: 10px;
+  margin-top: 1.2rem;
 }
 nav .logo img {
   height: fit-content;
@@ -47,19 +66,21 @@ nav .logo h2 {
 }
 nav .menu {
   display: flex;
-  gap: 40px;
+  margin-left: 20px;
+  margin-top: 25px;
+}
+nav .menu .click {
+  color: gray;
+  cursor: pointer;
+  margin-top: 10px;
+}
+nav .menu .click:hover {
+  color: black;
 }
 nav .menu ul {
   display: flex;
   gap: 50px;
   margin-right: 20px;
-}
-nav .menu ul li {
-  color: gray;
-  cursor: pointer;
-}
-nav .menu ul li:hover {
-  color: black;
 }
 nav .menu .btn {
   background-color: #FE753E;
@@ -69,7 +90,7 @@ nav .menu .btn {
   border: none;
   margin: auto;
   color: white;
-  transition: 0.7s;
+  transition: 0.4s;
 }
 nav .menu .btn:hover {
   opacity: 1;
@@ -89,6 +110,141 @@ nav .menu .btn-outline:hover {
   border: none;
 }
 
+.menu > li {
+  margin: 0 1rem;
+  overflow: hidden;
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: #FE753E;
+  position: absolute;
+  right: 11%;
+  top: 5%;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+.menu-button::before {
+  content: "";
+  margin-top: -8px;
+}
+
+.menu-button::after {
+  content: "";
+  margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: rgba(255, 255, 255, 0);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+@media (max-width: 1200px) {
+  .menu-button-container {
+    display: flex;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 68px;
+    left: 45%;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+  }
+  #menu-toggle ~ .menu li {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu li {
+    z-index: 999;
+    background-color: white;
+    height: 3.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .menu > li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 1em 0;
+    width: 100%;
+  }
+}
+@media (max-width: 1280px) {
+  .landing .container {
+    background-size: 0;
+  }
+}
+@media (max-width: 1000px) {
+  .our-learning .row {
+    justify-content: center !important;
+  }
+  .access .container .parent {
+    display: block !important;
+    gap: 0 !important;
+    margin-right: 20px !important;
+  }
+  .access .container .parent .child2 {
+    margin-top: 120px;
+  }
+}
+@media (max-width: 800px) {
+  .our-learning .row {
+    grid-template-columns: 1fr !important;
+    justify-content: center !important;
+  }
+  .help-students .container {
+    display: block !important;
+  }
+  .help-students .container .img-student {
+    text-align: center;
+    margin-bottom: 50px !important;
+  }
+  .help-students .container h1 {
+    font-size: 2rem;
+  }
+  .help-students .access .container .parent {
+    display: block !important;
+    gap: 0 !important;
+    margin-right: 20px !important;
+  }
+  .menu-button,
+  .menu-button::before,
+  .menu-button::after {
+    right: 1% !important;
+  }
+}
 .landing {
   margin-top: 3rem;
   display: flex;
@@ -102,7 +258,6 @@ nav .menu .btn-outline:hover {
   width: 100%;
   background-repeat: no-repeat;
   margin-top: 4rem;
-  position: fixed;
 }
 .landing .container .discription {
   margin-top: 50px;
@@ -166,17 +321,133 @@ nav .menu .btn-outline:hover {
 .landing .container .discription .link-btn .btn:hover {
   opacity: 1;
 }
-.landing .container .discription .block-gestion {
-  display: flex;
-  justify-content: space-between;
+
+.btn {
+  box-shadow: 0px 10px 40px rgba(254, 117, 62, 0.2);
+  background-color: #FE753E;
+  opacity: 0.9;
+  padding: 15px 20px;
+  border: none;
+  margin: auto 0;
+  color: white;
+  transition: 0.7s;
 }
-.landing .container .discription .block-gestion .item h1 {
+.btn:hover {
+  opacity: 1;
+}
+
+.block-gestion {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 80px;
+  grid-row-gap: 20px;
+  grid-auto-rows: auto;
+  width: fit-content;
+}
+.block-gestion .item h1 {
   color: #FE753E;
   font-size: 2.72rem;
   font-weight: 700;
 }
-.landing .container .discription .block-gestion .item p {
+.block-gestion .item p {
   margin-top: -10px;
   color: gray;
   font-weight: 400;
 }
+
+.our-learning {
+  margin-top: 10rem;
+}
+.our-learning .row {
+  margin: 50px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 40px;
+  grid-auto-rows: auto;
+  margin-right: 20px;
+}
+.our-learning .col {
+  display: flex;
+  justify-content: center;
+}
+.our-learning .col .card {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.our-learning .col .card img {
+  margin: 50px 0 30px 0;
+}
+.our-learning .col .card .card-title {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 31px;
+  /* identical to box height */
+  text-align: center;
+  color: #121212;
+}
+.our-learning .col .card .card-body {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 30px 120px;
+  /* or 150% */
+  text-align: center;
+  color: #7d7c7c;
+}
+
+.help-students {
+  margin-top: 15rem;
+}
+.help-students .container {
+  display: flex;
+  gap: 70px;
+}
+.help-students .container .bg-title {
+  background-image: url(/assets/img/line-2.png);
+}
+
+.access {
+  margin-top: 15rem;
+}
+.access .container .duo {
+  margin-top: -20px;
+  display: flex;
+  width: fit-content;
+}
+.access .container .bg-title {
+  margin: auto 0;
+  background-image: url("/assets/img/line-4.png") !important;
+}
+.access .container .parent {
+  display: flex;
+  justify-content: space-between;
+  gap: 160px;
+}
+.access .container .parent .child1 iframe {
+  box-shadow: 60px 86px #FFECE4;
+}
+.access .container .parent .child2 h3 {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 36px;
+  margin-top: 50px;
+}
+.access .container .parent .child2 p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 60px 0;
+  padding-right: 13rem;
+}
+.access .container .parent .for-shadow {
+  box-shadow: -60px 86px #FFECE4 !important;
+}
+
+/* @import'grid';
+
+// component (cards)
+@import 'components/card';
+@import 'breakpoints'; */
